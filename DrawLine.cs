@@ -11,6 +11,8 @@ public class DrawLine : MonoBehaviour
 
     public int numTurns;
 
+    public bool moveforwardBlocks = false;
+
 
 
     public void Start()
@@ -53,9 +55,17 @@ public class DrawLine : MonoBehaviour
 
                 ball.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                 ball.GetComponent<Rigidbody2D>().velocity = direction * 5;
+                if (numTurns>0) {
+                    ball.GetComponent<MoreBalls>().makingMore();
+                    for (int i = 0; i < numTurns; i++) { 
+                        ball.GetComponent<MoreBalls>().ballS[i].GetComponent<Rigidbody2D>().velocity = direction * 5;
+                    }
+                }
                 Debug.Log("Process direction " + direction);
+
                 canthrow = false;
                 numTurns++;
+                moveforwardBlocks = true;
             }
         }
     }
