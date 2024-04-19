@@ -5,33 +5,49 @@ using UnityEngine;
 public class MoreBalls : MonoBehaviour
 {
     public GameObject ball;
+    public GameObject ballprefab;
     
     public int turns;
 
-    private GameObject currentball;
+    public List<GameObject> ballS;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         turns = ball.GetComponent<DrawLine>().numTurns;
-        makingMore();
+        
 
     }
 
     public void makingMore()
     {
+
             for(int i = turns; i > 0; i--)
             {
-            currentball = Instantiate(ball, ball.GetComponent<DrawLine>()._initialPosition, Quaternion.identity);
-            }
+
+            ballS.Add(Instantiate(ballprefab, ball.GetComponent<DrawLine>()._initialPosition, Quaternion.identity));
+                }
 
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        for (int i = turns; i > 0; i--)
+        {
+            if (collision.gameObject.tag == "ThrowPoint")
+            {
 
+                Object.Destroy(ballS[i]);
+            }
+        }
+    }
 }
 
