@@ -7,7 +7,8 @@ public class BlockSC : MonoBehaviour
     public BoxCollider2D BlockCollider;
     public GameObject block;
     private Vector3 BlockPosistion;
-    public bool moveForward;
+
+    public GameObject Blockspawner;
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +33,10 @@ public class BlockSC : MonoBehaviour
     }
     public void Movingforward()
     {
-        if (moveForward == true)
-        {
-            BlockPosistion.y -= 4;
-            moveForward = false;
-            
-        }
-        //GameObject.Find("Ball").GetComponent<throwingSC>().canThrow == true
+            block.transform.position -= transform.up * 4;
+
+            Debug.Log("ewpiuvbewpiuvbWORKINGGINGIGN");
+
     }
 
 }
