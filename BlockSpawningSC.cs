@@ -16,7 +16,10 @@ public class BlockSpawningSC : MonoBehaviour
 
     void Start()
     {
-        
+        for (int i = Random.Range(0, 12); i < 12; i++)
+        {
+            currentBlock = Instantiate(block, new Vector3(((Random.Range(-6, 6)) * 2 + 1), 11f, -2f), Quaternion.identity);
+        }
     }
 
     void Update()
