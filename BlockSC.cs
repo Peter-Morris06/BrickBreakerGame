@@ -10,6 +10,8 @@ public class BlockSC : MonoBehaviour
 
     public GameObject Blockspawner;
 
+    public GameObject[] BlockList;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class BlockSC : MonoBehaviour
         if (collision.gameObject.tag == "ballTag")
         {
             Object.Destroy(block);
+            
         }
         if (collision.gameObject.tag == "blockTag")
         {
@@ -33,9 +36,13 @@ public class BlockSC : MonoBehaviour
     }
     public void Movingforward()
     {
-            block.transform.position -= transform.up * 4;
 
-            Debug.Log("ewpiuvbewpiuvbWORKINGGINGIGN");
+        BlockList = GameObject.FindGameObjectsWithTag("blockTag");
+        foreach (GameObject Block in BlockList) {
+            Block.transform.position -= transform.up * 4;
+        }
+
+        Debug.Log("ewpiuvbewpiuvbWORKINGGINGIGN");
 
     }
 
