@@ -41,9 +41,6 @@ public class BlockSC : MonoBehaviour
         foreach (GameObject Block in BlockList) {
             Block.transform.position -= transform.up * 2;
         }
-
-        Debug.Log("ewpiuvbewpiuvbWORKINGGINGIGN");
-
     }
 
 }
