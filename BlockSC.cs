@@ -39,7 +39,7 @@ public class BlockSC : MonoBehaviour
 
         BlockList = GameObject.FindGameObjectsWithTag("blockTag");
         foreach (GameObject Block in BlockList) {
-            Block.transform.position -= transform.up * 4;
+            Block.transform.position -= transform.up * 2;
         }
 
         Debug.Log("ewpiuvbewpiuvbWORKINGGINGIGN");
